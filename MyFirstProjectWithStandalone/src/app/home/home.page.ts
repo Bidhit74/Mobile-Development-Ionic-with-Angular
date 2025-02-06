@@ -1,5 +1,6 @@
 import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import {
   IonHeader,
   IonToolbar,
@@ -7,9 +8,6 @@ import {
   IonContent,
   IonList,
   IonLabel,
-  IonRow,
-  IonCol,
-  IonGrid,
   IonItem,
   IonText,
   IonFooter,
@@ -28,15 +26,13 @@ import {
     IonContent,
     IonList,
     IonLabel,
-    // IonRow,
-    // IonCol,
-    // IonGrid,
     IonItem,
     IonText,
     IonFooter,
     IonListHeader,
     NgFor,
     IonButton,
+    RouterLink,
   ],
 })
 export class HomePage {
@@ -72,4 +68,8 @@ export class HomePage {
       description: 'Fresh tomatoes, rich in vitamins and antioxidants.',
     },
   ];
+
+  onClickVieo(item: any) {
+    console.log('Clicked on item:', item);
+  }
 }

@@ -3,7 +3,19 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: 'home',
-    loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
+    children: [
+      {
+        path: '',
+        loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
+      },
+      {
+        path: 'item/:id',
+        loadComponent: () =>
+          import('./home/item-details/item-details.page').then(
+            (m) => m.ItemDetailsPage
+          ),
+      },
+    ],
   },
   {
     path: '',
