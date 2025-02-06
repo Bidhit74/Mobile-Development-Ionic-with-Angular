@@ -14,7 +14,8 @@
       <ion-label>{{item.name}}
         <p><ion-text color="median">{{item.description}}</ion-text></p>
       </ion-label>
-      <ion-button slot="end" fill="outline" [strong]="true" (click)="onClickView(item)">View</ion-button>
+      <ion-button slot="end" fill="outline" [strong]="true" [routerLink]="['item', item?.id]"
+        (click)="onClickView(item)">View</ion-button>
     </ion-item>
   </ion-list>
 </ion-content>
