@@ -17,8 +17,15 @@
       <ion-button slot="end" fill="outline" [strong]="true" [routerLink]="['item',item?.id]">View</ion-button>
     </ion-item>
   </ion-list>
+  <ion-list>
+    @if(image){
+    <img [src]="image" />
+    }
+  </ion-list>
 </ion-content>
 
 <ion-footer>
-  <ion-label>Footer</ion-label>
+  <ion-toolbar>
+    <ion-button expand="block" (click)="uploadImg()">Upload Grocery List</ion-button>
+  </ion-toolbar>
 </ion-footer>

@@ -1,6 +1,7 @@
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import {
   IonHeader,
   IonToolbar,
@@ -39,7 +40,22 @@ import { GroceryService } from '../Services/grocery.service';
 export class HomePage implements OnInit {
   private groceryService = inject(GroceryService);
   groceryList: any[] = [];
+  image: string | undefined;
   ngOnInit(): void {
     this.groceryList = this.groceryService.getItems();
+  }
+
+  async uploadImg() {
+    try {
+      const image = await Camera.getPhoto({
+        quality: 90,
+        allowEditing: true,
+        source: CameraSource.Prompt,
+        resultType: CameraResultType.Uri,
+      });
+      this.image = image.webPath;
+    } catch (err) {
+      console.log(err);
+    }
   }
 }
